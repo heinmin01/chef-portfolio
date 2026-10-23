@@ -1,0 +1,72 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/chef-portfolio   # change this
+  branch: main
+
+local_backend: true
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: site
+    label: Website
+    files:
+      - name: content
+        label: All page content
+        file: content/site.json
+        fields:
+          - { label: Chef name, name: name, widget: string }
+          - { label: Contact email, name: email, widget: string }
+          - { label: Instagram link, name: instagram, widget: string }
+          - { label: Search description, name: description, widget: text }
+          - label: Top of page
+            name: hero
+            widget: object
+            fields:
+              - { label: Small label, name: label, widget: string }
+              - { label: Headline, name: title, widget: text }
+              - { label: Intro, name: text, widget: text }
+              - { label: Button text, name: button, widget: string }
+          - label: About
+            name: about
+            widget: object
+            fields:
+              - { label: Small label, name: label, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Story (blank line between paragraphs), name: body, widget: text }
+              - { label: Portrait photo, name: photo, widget: image, required: false }
+          - label: Signature dishes
+            name: dishes
+            widget: object
+            fields:
+              - { label: Small label, name: label, widget: string }
+              - { label: Title, name: title, widget: string }
+              - label: Dishes
+                name: items
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: Dish name, name: name, widget: string }
+                  - { label: Description, name: description, widget: string }
+                  - { label: Photo, name: photo, widget: image, required: false }
+          - label: Journey
+            name: journey
+            widget: object
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Career steps
+                name: items
+                widget: list
+                summary: "{{fields.year}} {{fields.role}}"
+                fields:
+                  - { label: Year, name: year, widget: string }
+                  - { label: Role, name: role, widget: string }
+                  - { label: Place, name: place, widget: string }
+          - label: Reservations
+            name: contact
+            widget: object
+            fields:
+              - { label: Small label, name: label, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
