@@ -1,40 +1,64 @@
 {
-  "name": "Julien Marceau",
-  "email": "hello@example.com",
-  "instagram": "https://instagram.com/",
-  "description": "Julien Marceau is an executive chef cooking fine dining rooted in French technique.",
-  "hero": {
-    "label": "Executive chef",
-    "title": "Cooking is memory,\nserved warm",
-    "text": "Fine dining rooted in French technique, seasonal produce, and patience.",
-    "button": "Reserve a table"
+  "contact": {
+    "label": "Reserve",
+    "title": "An evening at the table",
+    "text": "Private dining, events, and collaborations. Send a note and he'll reply within two days."
   },
+  "journey": {
+    "title": "The journey",
+    "items": [
+      {
+        "year": "2022",
+        "role": "Executive chef, Maison Lune",
+        "place": "San Francisco"
+      },
+      {
+        "year": "2015",
+        "role": "Sous chef, Le Petit Jardin",
+        "place": "Paris"
+      },
+      {
+        "year": "2008",
+        "role": "Culinary diploma",
+        "place": "Le Cordon Bleu"
+      }
+    ]
+  },
+  "dishes": {
+    "label": "Signature dishes",
+    "title": "The tasting menu",
+    "items": [
+      {
+        "name": "Seared scallop",
+        "description": "Cauliflower purée, brown butter, hazelnut",
+        "photo": ""
+      },
+      {
+        "name": "Duck breast",
+        "description": "Roasted cherry, thyme jus, charred shallot",
+        "photo": ""
+      },
+      {
+        "name": "Dark chocolate",
+        "description": "Sea salt, olive oil, crème fraîche",
+        "photo": ""
+      }
+    ]
+  },
+  "name": "Chit Min Thu",
   "about": {
     "label": "About",
     "title": "Twenty years of quiet discipline",
     "body": "Replace this with your brother's story: where he trained, what he cooks, and why.\n\nMention the kitchens that shaped him and the kind of table he wants to set for guests.",
     "photo": ""
   },
-  "dishes": {
-    "label": "Signature dishes",
-    "title": "The tasting menu",
-    "items": [
-      { "name": "Seared scallop", "description": "Cauliflower purée, brown butter, hazelnut", "photo": "" },
-      { "name": "Duck breast", "description": "Roasted cherry, thyme jus, charred shallot", "photo": "" },
-      { "name": "Dark chocolate", "description": "Sea salt, olive oil, crème fraîche", "photo": "" }
-    ]
+  "instagram": "https://instagram.com/",
+  "hero": {
+    "label": "Executive chef",
+    "title": "Cooking is memory,\nserved warm",
+    "text": "Fine dining rooted in French technique, seasonal produce, and patience.",
+    "button": "Reserve a table"
   },
-  "journey": {
-    "title": "The journey",
-    "items": [
-      { "year": "2022", "role": "Executive chef, Maison Lune", "place": "San Francisco" },
-      { "year": "2015", "role": "Sous chef, Le Petit Jardin", "place": "Paris" },
-      { "year": "2008", "role": "Culinary diploma", "place": "Le Cordon Bleu" }
-    ]
-  },
-  "contact": {
-    "label": "Reserve",
-    "title": "An evening at the table",
-    "text": "Private dining, events, and collaborations. Send a note and he'll reply within two days."
-  }
+  "email": "hello@example.com",
+  "description": "Julien Marceau is an executive chef cooking fine dining rooted in French technique."
 }
