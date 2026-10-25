@@ -1,216 +1,724 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth dark">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Julien Marceau | Executive Chef</title>
-<meta name="description" content="Julien Marceau is an executive chef cooking fine dining rooted in French technique.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --ivory: #FAF7F0;
-    --sand: #F1ECE0;
-    --stone: #E2DAC8;
-    --ink: #2B2A26;
-    --muted: #6B6A62;
-    --bronze: #8A6B2F;
-    --line: #DDD5C2;
-    --serif: "Cormorant Garamond", Georgia, serif;
-    --sans: "Jost", system-ui, sans-serif;
-    --max: 1040px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { background: var(--ivory); color: var(--ink); font-family: var(--sans); line-height: 1.7; font-size: 16px; }
-  a { color: inherit; text-decoration: none; }
-  :focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
-  section { padding: 96px 0; }
-  h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.15; }
-  h2 { font-size: clamp(30px, 4vw, 42px); margin-bottom: 14px; }
-  .label { color: var(--bronze); font-size: 14px; margin-bottom: 12px; display: block; }
-  .muted { color: var(--muted); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Julian Vance — Executive Chef & Culinary Artist</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            300: '#f8e4be',
+                            400: '#f3e0b8',
+                            500: '#dfb877',
+                            600: '#c6994e',
+                            700: '#9e7533'
+                        },
+                        dark: {
+                            bg: '#0a0a0b',
+                            card: '#141416',
+                            surface: '#1c1d22',
+                            border: 'rgba(223, 184, 119, 0.15)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display for luxury serif headlines & Plus Jakarta Sans for UI text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  header { position: sticky; top: 0; z-index: 10; background: rgba(250,247,240,.94); border-bottom: 1px solid var(--line); }
-  header .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-  .brand { font-family: var(--serif); font-size: 22px; font-weight: 600; }
-  nav { display: flex; gap: 28px; font-size: 14px; color: var(--muted); }
-  nav a:hover { color: var(--ink); }
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0a0a0b;
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
 
-  .hero { text-align: center; padding: 140px 0 130px; }
-  .hero h1 { font-size: clamp(44px, 8vw, 84px); font-weight: 500; margin: 8px 0 20px; }
-  .hero p { color: var(--muted); font-size: 18px; max-width: 460px; margin: 0 auto 36px; }
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
 
-  .btn { display: inline-block; padding: 13px 32px; font-size: 15px; border: 1px solid var(--ink); border-radius: 2px; transition: background .2s, color .2s; cursor: pointer; font-family: var(--sans); background: transparent; color: var(--ink); }
-  .btn:hover { background: var(--ink); color: var(--ivory); }
-  .btn.solid { background: var(--ink); color: var(--ivory); }
-  .btn.solid:hover { background: var(--bronze); border-color: var(--bronze); }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #26262a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #dfb877;
+        }
 
-  .about { background: var(--sand); }
-  .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .photo { background: var(--stone); aspect-ratio: 4 / 5; border-radius: 2px; display: flex; align-items: center; justify-content: center; color: #8A8474; font-size: 14px; }
-  .about p { color: var(--muted); max-width: 46ch; }
-  .about p + p { margin-top: 14px; }
+        /* Champagne Gold Glassmorphism */
+        .glass-nav {
+            background: rgba(10, 10, 11, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(223, 184, 119, 0.12);
+        }
 
-  .dishes-head { text-align: center; margin-bottom: 48px; }
-  .dishes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
-  .dish .photo { aspect-ratio: 1 / 1; margin-bottom: 16px; background: #E9E2D2; }
-  .dish h3 { font-size: 24px; }
-  .dish p { color: var(--muted); font-size: 15px; }
+        .glass-card {
+            background: rgba(20, 20, 22, 0.75);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(223, 184, 119, 0.12);
+        }
 
-  .journey { background: var(--sand); }
-  .journey h2 { text-align: center; margin-bottom: 44px; }
-  .timeline { max-width: 560px; margin: 0 auto; }
-  .row { display: grid; grid-template-columns: 72px 1fr; gap: 24px; }
-  .row .year { text-align: right; color: var(--bronze); font-family: var(--serif); font-size: 22px; line-height: 1.3; }
-  .row .body { border-left: 1px solid #CFC6B0; padding: 0 0 32px 24px; }
-  .row:last-child .body { padding-bottom: 0; }
-  .row h3 { font-size: 22px; }
-  .row p { color: var(--muted); font-size: 15px; }
+        .glass-card:hover {
+            border-color: rgba(223, 184, 119, 0.35);
+            box-shadow: 0 10px 30px -10px rgba(223, 184, 119, 0.1);
+        }
 
-  .contact { text-align: center; }
-  .contact p.lead { color: var(--muted); max-width: 44ch; margin: 0 auto 36px; }
-  form { max-width: 480px; margin: 0 auto; display: grid; gap: 14px; text-align: left; }
-  label { font-size: 14px; color: var(--muted); display: grid; gap: 6px; }
-  input, textarea, select { font: inherit; font-size: 16px; padding: 12px 14px; border: 1px solid var(--line); background: #fff; border-radius: 2px; color: var(--ink); width: 100%; }
-  textarea { min-height: 110px; resize: vertical; }
-  form .btn { justify-self: start; margin-top: 6px; }
+        /* Gold Gradient Text & Effects */
+        .text-gold-gradient {
+            background: linear-gradient(135deg, #f8e4be 0%, #dfb877 50%, #9e7533 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-  footer { border-top: 1px solid var(--line); padding: 28px 0; font-size: 14px; color: var(--muted); }
-  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  footer a:hover { color: var(--ink); }
+        .gold-glow {
+            box-shadow: 0 0 25px rgba(223, 184, 119, 0.2);
+        }
 
-  @media (max-width: 760px) {
-    section { padding: 68px 0; }
-    nav { gap: 18px; }
-    .brand { font-size: 19px; }
-    .hero { padding: 90px 0; }
-    .about .wrap { grid-template-columns: 1fr; gap: 32px; }
-    .dishes { grid-template-columns: 1fr; }
-    .row { grid-template-columns: 56px 1fr; gap: 16px; }
-  }
-  @media (max-width: 480px) { nav a:nth-child(2) { display: none; } }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
-</style>
+        .glow-bg {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        /* Image Hover Zoom */
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.07);
+        }
+
+        /* Custom Timeline Connector */
+        .timeline-line {
+            background: linear-gradient(180deg, rgba(223, 184, 119, 0.8) 0%, rgba(198, 153, 78, 0.3) 70%, rgba(38, 38, 42, 0.1) 100%);
+        }
+    </style>
 </head>
-<body>
+<body class="relative text-gray-200 antialiased selection:bg-gold-500 selection:text-black">
 
-<header>
-  <div class="wrap">
-    <a href="#top" class="brand" data-t="name"></a>
-    <nav aria-label="Main">
-      <a href="#about">About</a>
-      <a href="#dishes">Dishes</a>
-      <a href="#journey">Journey</a>
-      <a href="#reserve">Reserve</a>
-    </nav>
-  </div>
-</header>
+    <!-- Ambient Gold Highlights -->
+    <div class="glow-bg w-[32rem] h-[32rem] bg-gold-500 top-10 -left-20"></div>
+    <div class="glow-bg w-[36rem] h-[36rem] bg-gold-700 top-[45%] -right-32"></div>
 
-<main id="top">
-  <section class="hero"><div class="wrap">
-    <span class="label" data-t="hero.label"></span>
-    <h1 data-t="hero.title"></h1>
-    <p data-t="hero.text"></p>
-    <a href="#reserve" class="btn" data-t="hero.button"></a>
-  </div></section>
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full border border-gold-500/40 flex items-center justify-center bg-dark-card group-hover:border-gold-500 transition-all duration-300">
+                    <span class="font-serif text-lg font-bold text-gold-500">JV</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-lg font-bold tracking-wider text-white group-hover:text-gold-300 transition-colors">JULIAN VANCE</span>
+                    <span class="text-[9px] uppercase tracking-[0.25em] text-gold-500">Master Culinary Artist</span>
+                </div>
+            </a>
+            
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-9 text-xs font-medium uppercase tracking-widest text-gray-400">
+                <a href="#about" class="hover:text-gold-400 transition-colors">Philosophy</a>
+                <a href="#journey" class="hover:text-gold-400 transition-colors">Culinary Journey</a>
+                <a href="#signature" class="hover:text-gold-400 transition-colors">Signature Creations</a>
+                <a href="#press" class="hover:text-gold-400 transition-colors">Accolades</a>
+            </nav>
 
-  <section class="about" id="about"><div class="wrap">
-    <div id="about-photo"></div>
-    <div>
-      <span class="label" data-t="about.label"></span>
-      <h2 data-t="about.title"></h2>
-      <div id="about-body"></div>
+            <!-- CTA & Mobile Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="#reserve" class="hidden sm:inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest text-black bg-gradient-to-r from-gold-300 via-gold-500 to-gold-600 hover:brightness-110 transition-all duration-300 shadow-lg shadow-gold-500/20">
+                    <span>Reserve Dining</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-gold-400 p-2 text-xl focus:outline-none" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-gold-500/10 bg-dark-bg/95 px-6 py-6 space-y-4 text-sm uppercase tracking-widest">
+            <a href="#about" class="block text-gray-300 hover:text-gold-400 py-1">Philosophy</a>
+            <a href="#journey" class="block text-gray-300 hover:text-gold-400 py-1">Culinary Journey</a>
+            <a href="#signature" class="block text-gray-300 hover:text-gold-400 py-1">Signature Creations</a>
+            <a href="#press" class="block text-gray-300 hover:text-gold-400 py-1">Accolades</a>
+            <a href="#reserve" class="block text-gold-400 font-semibold py-1">Reserve Experience →</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section id="about" class="min-h-[90vh] flex items-center justify-center relative py-20 px-6 overflow-hidden">
+            <!-- Hero Ambient Photo Background -->
+            <div class="absolute inset-0 z-0 opacity-20 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1920&q=80');"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-dark-bg via-dark-bg/80 to-dark-bg z-0"></div>
+
+            <div class="max-w-5xl mx-auto text-center space-y-8 relative z-10">
+                <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-gold-500/30 bg-dark-card/80 backdrop-blur-md text-xs font-medium text-gold-400 uppercase tracking-widest">
+                    <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
+                    Michelin Stared Executive Chef & Gastronomer
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight text-white leading-[1.1]">
+                    Crafting <span class="italic font-normal text-gold-gradient">Culinary Experiences</span> Beyond Emotion.
+                </h1>
+
+                <p class="max-w-2xl mx-auto text-base sm:text-lg text-gray-400 font-light leading-relaxed">
+                    Over two decades of culinary mastery—from Parisian classical roots to modern molecular gastronomy. Every plate tells a story of heritage, seasonal precision, and uncompromised elegance.
+                </p>
+
+                <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-5">
+                    <a href="#journey" class="w-full sm:w-auto px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-widest bg-gradient-to-r from-gold-300 via-gold-500 to-gold-600 text-black hover:brightness-110 transition-all duration-300 shadow-xl shadow-gold-500/20 flex items-center justify-center gap-3">
+                        <span>Explore Culinary Journey</span> <i class="fa-solid fa-compass text-xs"></i>
+                    </a>
+                    <a href="#signature" class="w-full sm:w-auto px-8 py-4 rounded-full text-xs font-semibold uppercase tracking-widest border border-gold-500/30 bg-dark-card/60 text-gray-200 hover:text-white hover:border-gold-500 transition-all duration-300 flex items-center justify-center gap-3">
+                        <span>Signature Creations</span>
+                    </a>
+                </div>
+
+                <!-- Stats Highlight Bar -->
+                <div class="pt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="p-6 rounded-2xl glass-card text-center">
+                        <div class="font-serif text-3xl sm:text-4xl font-bold text-gold-400">3 ★</div>
+                        <div class="text-[11px] uppercase tracking-widest text-gray-400 mt-2">Michelin Recognition</div>
+                    </div>
+                    <div class="p-6 rounded-2xl glass-card text-center">
+                        <div class="font-serif text-3xl sm:text-4xl font-bold text-gold-400">22+</div>
+                        <div class="text-[11px] uppercase tracking-widest text-gray-400 mt-2">Years of Mastery</div>
+                    </div>
+                    <div class="p-6 rounded-2xl glass-card text-center">
+                        <div class="font-serif text-3xl sm:text-4xl font-bold text-gold-400">14</div>
+                        <div class="text-[11px] uppercase tracking-widest text-gray-400 mt-2">Countries Travelled</div>
+                    </div>
+                    <div class="p-6 rounded-2xl glass-card text-center">
+                        <div class="font-serif text-3xl sm:text-4xl font-bold text-gold-400">500+</div>
+                        <div class="text-[11px] uppercase tracking-widest text-gray-400 mt-2">Private Banquets</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Culinary Journey & Experience Timeline Section -->
+        <section id="journey" class="py-28 px-6 relative bg-dark-bg">
+            <div class="max-w-6xl mx-auto space-y-20">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-500">The Chronicle</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">Interactive Culinary Journey</h2>
+                    <p class="text-sm sm:text-base text-gray-400 font-light">
+                        A step-by-step visual odyssey detailing key milestones from historic Parisian kitchens to modern private gastronomy.
+                    </p>
+                </div>
+
+                <!-- Interactive Filters for Journey Steps -->
+                <div class="flex flex-wrap justify-center gap-3">
+                    <button onclick="filterTimeline('all')" class="timeline-filter-btn active-filter px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-gold-500 text-black transition-all duration-300">All Milestones</button>
+                    <button onclick="filterTimeline('apprenticeship')" class="timeline-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-dark-card border border-gold-500/20 text-gray-400 hover:text-gold-300 hover:border-gold-500/50 transition-all duration-300">Apprenticeship</button>
+                    <button onclick="filterTimeline('michelin')" class="timeline-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-dark-card border border-gold-500/20 text-gray-400 hover:text-gold-300 hover:border-gold-500/50 transition-all duration-300">Michelin Stages</button>
+                    <button onclick="filterTimeline('executive')" class="timeline-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider bg-dark-card border border-gold-500/20 text-gray-400 hover:text-gold-300 hover:border-gold-500/50 transition-all duration-300">Executive & Private</button>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative pt-8">
+                    <!-- Central Gold Connector Line -->
+                    <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 timeline-line -translate-x-1/2"></div>
+
+                    <!-- Timeline Items -->
+                    <div class="space-y-20 md:space-y-28">
+
+                        <!-- Milestone 1 -->
+                        <div class="timeline-item relative flex flex-col md:flex-row items-center gap-10" data-category="apprenticeship">
+                            <!-- Node Indicator -->
+                            <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-dark-bg border-2 border-gold-500 z-10 items-center justify-center text-gold-400 shadow-xl gold-glow">
+                                <span class="font-serif text-sm font-bold">01</span>
+                            </div>
+
+                            <!-- Photo Card Left -->
+                            <div class="w-full md:w-1/2 md:pr-12">
+                                <div class="glass-card rounded-3xl p-3 group">
+                                    <div class="img-hover-zoom rounded-2xl relative aspect-[16/10] bg-dark-surface">
+                                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=80" alt="Parisian Classical Kitchen Stage" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-4 left-4 bg-dark-bg/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-medium text-gold-300 flex items-center gap-2 border border-gold-500/20">
+                                            <i class="fa-solid fa-location-dot text-gold-500"></i> Paris, France • 2004 – 2007
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Details Right -->
+                            <div class="w-full md:w-1/2 md:pl-12 space-y-4">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider">
+                                    Classical Foundation
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white">Classical Apprenticeship in Paris</h3>
+                                <div class="text-xs uppercase tracking-widest text-gray-400">Le Grand Véfour • Commis de Cuisine</div>
+                                <p class="text-sm text-gray-300 font-light leading-relaxed">
+                                    Mastered fundamental French culinary techniques under legendary mentors. Developed extreme discipline in saucier craftsmanship, knife precision, and classical butcher arts.
+                                </p>
+                                <div class="pt-2 flex flex-wrap gap-2 text-xs text-gray-400">
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">French Sauces</span>
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">Precision Butchery</span>
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">Kitchen Rigor</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Milestone 2 -->
+                        <div class="timeline-item relative flex flex-col md:flex-row-reverse items-center gap-10" data-category="michelin">
+                            <!-- Node Indicator -->
+                            <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-dark-bg border-2 border-gold-500 z-10 items-center justify-center text-gold-400 shadow-xl gold-glow">
+                                <span class="font-serif text-sm font-bold">02</span>
+                            </div>
+
+                            <!-- Photo Card Right -->
+                            <div class="w-full md:w-1/2 md:pl-12">
+                                <div class="glass-card rounded-3xl p-3 group">
+                                    <div class="img-hover-zoom rounded-2xl relative aspect-[16/10] bg-dark-surface">
+                                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Michelin Kitchen Plating" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-4 left-4 bg-dark-bg/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-medium text-gold-300 flex items-center gap-2 border border-gold-500/20">
+                                            <i class="fa-solid fa-location-dot text-gold-500"></i> Tokyo & Kyoto • 2012 – 2015
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Details Left -->
+                            <div class="w-full md:w-1/2 md:pr-12 space-y-4 md:text-right">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider">
+                                    Kaiseki & Minimalism
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white">Michelin-Star Stage in Japan</h3>
+                                <div class="text-xs uppercase tracking-widest text-gray-400">Ryugin Tokyo • Sous Chef</div>
+                                <p class="text-sm text-gray-300 font-light leading-relaxed">
+                                    Immersed in Kaiseki philosophy and hyper-seasonal ingredient reverence. Merged classical French technical rigor with Japanese minimalist presentation and umami extraction techniques.
+                                </p>
+                                <div class="pt-2 flex flex-wrap gap-2 text-xs text-gray-400 md:justify-end">
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">Kaiseki Arts</span>
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">Dashi Craft</span>
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">Seasonal Harmony</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Milestone 3 -->
+                        <div class="timeline-item relative flex flex-col md:flex-row items-center gap-10" data-category="executive">
+                            <!-- Node Indicator -->
+                            <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-dark-bg border-2 border-gold-500 z-10 items-center justify-center text-gold-400 shadow-xl gold-glow">
+                                <span class="font-serif text-sm font-bold">03</span>
+                            </div>
+
+                            <!-- Photo Card Left -->
+                            <div class="w-full md:w-1/2 md:pr-12">
+                                <div class="glass-card rounded-3xl p-3 group">
+                                    <div class="img-hover-zoom rounded-2xl relative aspect-[16/10] bg-dark-surface">
+                                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Executive Chef Dining Room" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-4 left-4 bg-dark-bg/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-medium text-gold-300 flex items-center gap-2 border border-gold-500/20">
+                                            <i class="fa-solid fa-location-dot text-gold-500"></i> New York • 2018 – 2022
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Details Right -->
+                            <div class="w-full md:w-1/2 md:pl-12 space-y-4">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider">
+                                    3-Star Michelin Award
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white">Executive Chef at L'Étoile</h3>
+                                <div class="text-xs uppercase tracking-widest text-gray-400">L'Étoile Manhattan • Executive Chef</div>
+                                <p class="text-sm text-gray-300 font-light leading-relaxed">
+                                    Led a 25-person culinary team to earn 3 consecutive Michelin Stars. Authored seasonal 12-course tasting menus celebrated for innovative seafood pairings and table-side aromatic alchemy.
+                                </p>
+                                <div class="pt-2 flex flex-wrap gap-2 text-xs text-gray-400">
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">3 Michelin Stars</span>
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">Menu Curation</span>
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">Kitchen Leadership</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Milestone 4 -->
+                        <div class="timeline-item relative flex flex-col md:flex-row-reverse items-center gap-10" data-category="executive">
+                            <!-- Node Indicator -->
+                            <div class="hidden md:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full bg-dark-bg border-2 border-gold-500 z-10 items-center justify-center text-gold-400 shadow-xl gold-glow">
+                                <span class="font-serif text-sm font-bold">04</span>
+                            </div>
+
+                            <!-- Photo Card Right -->
+                            <div class="w-full md:w-1/2 md:pl-12">
+                                <div class="glass-card rounded-3xl p-3 group">
+                                    <div class="img-hover-zoom rounded-2xl relative aspect-[16/10] bg-dark-surface">
+                                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80" alt="Private Luxury Banquet" class="w-full h-full object-cover">
+                                        <div class="absolute bottom-4 left-4 bg-dark-bg/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-medium text-gold-300 flex items-center gap-2 border border-gold-500/20">
+                                            <i class="fa-solid fa-location-dot text-gold-500"></i> Global Private Estates • Present
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Details Left -->
+                            <div class="w-full md:w-1/2 md:pr-12 space-y-4 md:text-right">
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider">
+                                    High-End Gastronomy
+                                </div>
+                                <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white">Private Atelier & Bespoke Dinners</h3>
+                                <div class="text-xs uppercase tracking-widest text-gray-400">Vance Gastronomy • Principal Owner</div>
+                                <p class="text-sm text-gray-300 font-light leading-relaxed">
+                                    Launched an exclusive private dining atelier catering to heads of state, celebrities, and rare spirit collectors worldwide with personalized hyper-seasonal culinary experiences.
+                                </p>
+                                <div class="pt-2 flex flex-wrap gap-2 text-xs text-gray-400 md:justify-end">
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">Private Catering</span>
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">Wine Pairing</span>
+                                    <span class="px-3 py-1 rounded-full bg-dark-surface border border-gold-500/10">Custom Menus</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signature Dishes Bento Gallery -->
+        <section id="signature" class="py-28 px-6 border-t border-gold-500/10 bg-dark-bg/80">
+            <div class="max-w-7xl mx-auto space-y-16">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="space-y-3">
+                        <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-500">Gastronomic Portfolio</span>
+                        <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">Signature Creations</h2>
+                    </div>
+                    <p class="text-sm text-gray-400 max-w-md font-light">
+                        Each signature creation balances unexpected flavor profiles, rare seasonal ingredients, and artistic visual harmony. Click any dish to view tasting notes.
+                    </p>
+                </div>
+
+                <!-- Bento Grid Layout -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Dish Card 1 (Large Bento) -->
+                    <div onclick="openDishModal('A5 Wagyu & Black Truffle Jus', 'A5 Miyazaki Wagyu, Perigord Black Truffle, Fermented Shallot Emulsion, Smoked Bone Marrow Consommé', 'Rich, buttery umami paired with subtle earthy acidity and oakwood woodsmoke tones.', 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80')" class="md:col-span-2 group glass-card rounded-3xl overflow-hidden cursor-pointer transition-all duration-500">
+                        <div class="img-hover-zoom h-80 sm:h-[26rem] relative">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80" alt="A5 Wagyu Steak Plating" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-90"></div>
+                            <div class="absolute top-4 right-4 bg-gold-500 text-black px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                                View Tasting Notes
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6 space-y-2">
+                                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Autumn Tasting Course VI</span>
+                                <h3 class="text-2xl sm:text-3xl font-serif font-bold text-white group-hover:text-gold-300 transition-colors">A5 Miyazaki Wagyu & Black Truffle Jus</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dish Card 2 -->
+                    <div onclick="openDishModal('Wild Hokkaido Scallop Ceviche', 'Hokkaido Dayboat Scallops, Finger Lime Pearls, Compressed Green Apple, Yuzu-Kaffir Emulsion', 'Crisp citrus acidity opening into sweet marine tenderness with refreshing herbaceous finish.', 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80')" class="group glass-card rounded-3xl overflow-hidden cursor-pointer transition-all duration-500">
+                        <div class="img-hover-zoom h-80 sm:h-[26rem] relative">
+                            <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80" alt="Gourmet Seafood Plating" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-90"></div>
+                            <div class="absolute top-4 right-4 bg-dark-bg/80 backdrop-blur-md text-gold-400 px-3 py-1 rounded-full text-xs font-semibold border border-gold-500/20">
+                                Raw & Marine
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6 space-y-2">
+                                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Spring Appetizer</span>
+                                <h3 class="text-xl font-serif font-bold text-white group-hover:text-gold-300 transition-colors">Hokkaido Scallop & Yuzu Ceviche</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dish Card 3 -->
+                    <div onclick="openDishModal('Smoked Golden Caviar Tartlet', 'Osetra Golden Caviar, Crème Fraîche, Buckwheat Tart, Edible Gold Leaf', 'Delicate briny pops seamlessly melting into warm cultured cream and nutty crisp crust.', 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80')" class="group glass-card rounded-3xl overflow-hidden cursor-pointer transition-all duration-500">
+                        <div class="img-hover-zoom h-80 relative">
+                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="Fine Dining Caviar Tart" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-90"></div>
+                            <div class="absolute top-4 right-4 bg-dark-bg/80 backdrop-blur-md text-gold-400 px-3 py-1 rounded-full text-xs font-semibold border border-gold-500/20">
+                                Amuse-Bouche
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6 space-y-2">
+                                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Starter Course</span>
+                                <h3 class="text-xl font-serif font-bold text-white group-hover:text-gold-300 transition-colors">Golden Osetra Caviar Tartlet</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dish Card 4 (Large Bento) -->
+                    <div onclick="openDishModal('Deconstructed Valrhona Chocolate Sphere', '70% Guanaja Dark Chocolate, Gold-dusted Honeycomb, Passionfruit Gel, Warm Spiced Bourbon Ganache', 'Intense bittersweet cacao broken by tropical passionfruit sparkle and warm vanilla bourbon notes.', 'https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=1000&q=80')" class="md:col-span-2 group glass-card rounded-3xl overflow-hidden cursor-pointer transition-all duration-500">
+                        <div class="img-hover-zoom h-80 relative">
+                            <img src="https://images.unsplash.com/photo-1579372786545-d24232daf58c?auto=format&fit=crop&w=1000&q=80" alt="Gourmet Dessert Plating" class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent opacity-90"></div>
+                            <div class="absolute top-4 right-4 bg-gold-500 text-black px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">
+                                View Tasting Notes
+                            </div>
+                            <div class="absolute bottom-6 left-6 right-6 space-y-2">
+                                <span class="text-xs uppercase tracking-widest text-gold-400 font-semibold">Grand Finale Dessert</span>
+                                <h3 class="text-2xl font-serif font-bold text-white group-hover:text-gold-300 transition-colors">Valrhona Chocolate & Bourbon Sphere</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials & Critic Press Section -->
+        <section id="press" class="py-28 px-6 border-t border-gold-500/10 bg-dark-bg relative">
+            <div class="max-w-6xl mx-auto space-y-16">
+                <div class="text-center space-y-3">
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-500">Critical Acclaim</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white">Press & Client Reviews</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="glass-card rounded-3xl p-8 space-y-6 flex flex-col justify-between border border-gold-500/10">
+                        <div class="space-y-4">
+                            <div class="flex text-gold-400 text-xs gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-sm text-gray-300 font-light italic leading-relaxed">
+                                "Chef Vance does not merely cook; he orchestrates a symphony of flavor. His 12-course tasting menu was the most transcendent culinary experience New York has seen in a decade."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
+                            <div>
+                                <div class="font-serif font-bold text-white text-sm">The New York Times</div>
+                                <div class="text-xs text-gold-500">Lead Food Critic Review</div>
+                            </div>
+                            <i class="fa-solid fa-quote-right text-2xl text-gold-500/20"></i>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="glass-card rounded-3xl p-8 space-y-6 flex flex-col justify-between border border-gold-500/10">
+                        <div class="space-y-4">
+                            <div class="flex text-gold-400 text-xs gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-sm text-gray-300 font-light italic leading-relaxed">
+                                "Julian catered our private estate banquet in Zurich. The level of precision, wine pairing intuition, and discretion was nothing short of perfection."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
+                            <div>
+                                <div class="font-serif font-bold text-white text-sm">Baroness H. von Berg</div>
+                                <div class="text-xs text-gold-500">Private Dining Client</div>
+                            </div>
+                            <i class="fa-solid fa-quote-right text-2xl text-gold-500/20"></i>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="glass-card rounded-3xl p-8 space-y-6 flex flex-col justify-between border border-gold-500/10">
+                        <div class="space-y-4">
+                            <div class="flex text-gold-400 text-xs gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-sm text-gray-300 font-light italic leading-relaxed">
+                                "Unapologetically bold yet delicately restrained. A masterclass in modernizing classical French saucier heritage for the contemporary palate."
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-800 flex items-center justify-between">
+                            <div>
+                                <div class="font-serif font-bold text-white text-sm">MICHELIN Guide Inspector</div>
+                                <div class="text-xs text-gold-500">2023 Official Report</div>
+                            </div>
+                            <i class="fa-solid fa-quote-right text-2xl text-gold-500/20"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking / Reservation Section -->
+        <section id="reserve" class="py-28 px-6 border-t border-gold-500/10 bg-dark-bg relative overflow-hidden">
+            <div class="max-w-4xl mx-auto space-y-12 relative z-10">
+                <div class="text-center space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-gold-500">Bespoke Dining</span>
+                    <h2 class="text-4xl sm:text-6xl font-serif font-bold text-white">Reserve an Experience</h2>
+                    <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto font-light">
+                        Inquire for private estate catering, brand consultancies, or culinary pop-up engagements worldwide.
+                    </p>
+                </div>
+
+                <!-- Booking Widget Form -->
+                <form id="booking-form" onsubmit="handleFormSubmit(event)" class="glass-card rounded-3xl p-8 sm:p-10 border border-gold-500/20 space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Full Name</label>
+                            <input type="text" required placeholder="Lord/Lady or Full Name" class="w-full bg-dark-surface border border-gold-500/20 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Email Address</label>
+                            <input type="email" required placeholder="client@domain.com" class="w-full bg-dark-surface border border-gold-500/20 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Experience Type</label>
+                            <select class="w-full bg-dark-surface border border-gold-500/20 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                                <option>Private Estate Dinner</option>
+                                <option>Corporate Gala Catering</option>
+                                <option>Restaurant Advisory</option>
+                                <option>Keynote / Cooking Masterclass</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Estimated Guests</label>
+                            <input type="number" placeholder="2 - 50" min="1" class="w-full bg-dark-surface border border-gold-500/20 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Target Date</label>
+                            <input type="date" class="w-full bg-dark-surface border border-gold-500/20 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="text-xs uppercase tracking-wider text-gold-400 font-semibold">Dietary Notes & Location Details</label>
+                        <textarea rows="4" placeholder="Mention preferred location (e.g., Zurich Villa, Aspen Chalet), dietary preferences, or special wine requests..." class="w-full bg-dark-surface border border-gold-500/20 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors"></textarea>
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button type="submit" class="w-full sm:w-auto px-10 py-4 rounded-full text-xs font-semibold uppercase tracking-widest text-black bg-gradient-to-r from-gold-300 via-gold-500 to-gold-600 hover:brightness-110 transition-all shadow-xl shadow-gold-500/25">
+                            Submit Consultation Request
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Popup for Dish Tasting Notes -->
+    <div id="dish-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-6 bg-black/80 backdrop-blur-md">
+        <div class="glass-card max-w-2xl w-full rounded-3xl overflow-hidden border border-gold-500/30 relative space-y-6">
+            <button onclick="closeDishModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-dark-bg text-gray-400 hover:text-white flex items-center justify-center border border-gold-500/20 z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="h-64 relative overflow-hidden">
+                <img id="modal-img" src="" alt="Dish Preview" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent"></div>
+            </div>
+            <div class="p-8 pt-0 space-y-4">
+                <span class="text-xs font-bold uppercase tracking-widest text-gold-500">Master Tasting Notes</span>
+                <h3 id="modal-title" class="text-3xl font-serif font-bold text-white">Dish Title</h3>
+                <div class="space-y-2">
+                    <div class="text-xs uppercase tracking-widest text-gray-400 font-semibold">Key Ingredients</div>
+                    <p id="modal-ingredients" class="text-sm text-gold-300 font-light"></p>
+                </div>
+                <div class="space-y-2 pt-2 border-t border-gray-800">
+                    <div class="text-xs uppercase tracking-widest text-gray-400 font-semibold">Flavor & Texture Profile</div>
+                    <p id="modal-flavor" class="text-sm text-gray-300 font-light leading-relaxed"></p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div></section>
 
-  <section id="dishes"><div class="wrap">
-    <div class="dishes-head">
-      <span class="label" data-t="dishes.label"></span>
-      <h2 data-t="dishes.title"></h2>
+    <!-- Toast Notification -->
+    <div id="toast" class="hidden fixed bottom-6 right-6 bg-gold-500 text-black px-6 py-4 rounded-2xl shadow-2xl text-xs font-semibold items-center gap-3 z-50">
+        <i class="fa-solid fa-circle-check text-base"></i>
+        <span>Reservation request sent! Chef Julian's concierge will contact you within 24h.</span>
     </div>
-    <div class="dishes" id="dish-list"></div>
-  </div></section>
 
-  <section class="journey" id="journey"><div class="wrap">
-    <h2 data-t="journey.title"></h2>
-    <div class="timeline" id="timeline"></div>
-  </div></section>
+    <!-- Footer -->
+    <footer class="py-10 px-6 border-t border-gold-500/10 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="font-serif font-bold text-gold-500">JULIAN VANCE</span>
+                <span>• Gastronomy Atelier</span>
+            </div>
+            <div>© 2026 Chef Julian Vance. All Rights Reserved.</div>
+            <div class="flex gap-6 text-gray-400">
+                <a href="#" class="hover:text-gold-400">Instagram</a>
+                <a href="#" class="hover:text-gold-400">Michelin Guide</a>
+                <a href="#" class="hover:text-gold-400">Press Kit</a>
+            </div>
+        </div>
+    </footer>
 
-  <section class="contact" id="reserve"><div class="wrap">
-    <span class="label" data-t="contact.label"></span>
-    <h2 data-t="contact.title"></h2>
-    <p class="lead" data-t="contact.text"></p>
-    <form id="contact-form" method="post" enctype="text/plain">
-      <label>Your name <input type="text" name="name" autocomplete="name" required></label>
-      <label>Email <input type="email" name="email" autocomplete="email" required></label>
-      <label>What's the occasion?
-        <select name="occasion">
-          <option>Private dinner</option><option>Event or catering</option>
-          <option>Collaboration</option><option>Something else</option>
-        </select>
-      </label>
-      <label>Message <textarea name="message"></textarea></label>
-      <button class="btn solid" type="submit">Send request</button>
-    </form>
-  </div></section>
-</main>
+    <!-- Interactive JavaScript -->
+    <script>
+        // Mobile Drawer Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-<footer>
-  <div class="wrap">
-    <span>© <span id="year"></span> <span data-t="name"></span></span>
-    <span><a id="ig" href="#">Instagram</a> &nbsp;&nbsp; <a id="mail" href="#"></a></span>
-  </div>
-</footer>
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-<script>
-fetch("content/site.json").then(function (r) { return r.json(); }).then(function (c) {
-  function get(path) { return path.split(".").reduce(function (o, k) { return o && o[k]; }, c) || ""; }
-  document.querySelectorAll("[data-t]").forEach(function (el) {
-    var lines = String(get(el.dataset.t)).split("\n");
-    el.textContent = "";
-    lines.forEach(function (line, i) {
-      if (i) el.appendChild(document.createElement("br"));
-      el.appendChild(document.createTextNode(line));
-    });
-  });
-  document.title = c.name + " | " + c.hero.label;
-  var meta = document.querySelector('meta[name="description"]');
-  if (meta) meta.content = c.description;
-  function photo(src, alt, label) {
-    var d = document.createElement("div");
-    d.className = "photo";
-    if (src) { var i = document.createElement("img"); i.src = src; i.alt = alt; i.loading = "lazy"; d.appendChild(i); }
-    else { d.textContent = label; d.setAttribute("role", "img"); d.setAttribute("aria-label", alt + " (placeholder)"); }
-    return d;
-  }
-  function el(tag, text, cls) { var e = document.createElement(tag); e.textContent = text; if (cls) e.className = cls; return e; }
-  document.getElementById("about-photo").replaceWith(photo(c.about.photo, "Portrait of " + c.name, "Portrait photo"));
-  var body = document.getElementById("about-body");
-  c.about.body.split(/\n\s*\n/).forEach(function (t) { body.appendChild(el("p", t.trim())); });
-  var list = document.getElementById("dish-list");
-  c.dishes.items.forEach(function (d) {
-    var a = document.createElement("article"); a.className = "dish";
-    a.appendChild(photo(d.photo, d.name, "Photo"));
-    a.appendChild(el("h3", d.name)); a.appendChild(el("p", d.description));
-    list.appendChild(a);
-  });
-  var tl = document.getElementById("timeline");
-  c.journey.items.forEach(function (j) {
-    var r = document.createElement("div"); r.className = "row";
-    r.appendChild(el("div", j.year, "year"));
-    var b = document.createElement("div"); b.className = "body";
-    b.appendChild(el("h3", j.role)); b.appendChild(el("p", j.place));
-    r.appendChild(b); tl.appendChild(r);
-  });
-  document.getElementById("contact-form").action = "mailto:" + c.email;
-  document.getElementById("ig").href = c.instagram;
-  var m = document.getElementById("mail"); m.href = "mailto:" + c.email; m.textContent = c.email;
-  document.getElementById("year").textContent = new Date().getFullYear();
-});
-</script>
+        // Timeline Filter Logic
+        function filterTimeline(category) {
+            const items = document.querySelectorAll('.timeline-item');
+            const buttons = document.querySelectorAll('.timeline-filter-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-gold-500', 'text-black');
+                btn.classList.add('bg-dark-card', 'text-gray-400');
+            });
+
+            event.currentTarget.classList.remove('bg-dark-card', 'text-gray-400');
+            event.currentTarget.classList.add('bg-gold-500', 'text-black');
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Dish Modal Functions
+        function openDishModal(title, ingredients, flavor, imgSrc) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-ingredients').innerText = ingredients;
+            document.getElementById('modal-flavor').innerText = flavor;
+            document.getElementById('modal-img').src = imgSrc;
+            document.getElementById('dish-modal').classList.remove('hidden');
+        }
+
+        function closeDishModal() {
+            document.getElementById('dish-modal').classList.add('hidden');
+        }
+
+        // Reservation Form Submission Logic
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            
+            document.getElementById('booking-form').reset();
+
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 4000);
+        }
+    </script>
 </body>
 </html>
